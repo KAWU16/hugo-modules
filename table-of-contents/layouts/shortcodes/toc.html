@@ -1,11 +1,5 @@
-{{ $class := .Class }}
-{{ $scratch := newScratch }}
-{{ if not (.Collapsed | default true) }} 
-  {{ $scratch.Set "openAttr" "open" }}
-{{ else }}
-  {{ $scratch.Set "openAttr" "" }}
-{{ end }}
-<details {{ $scratch.Get "openAttr" | safeHTMLAttr }} class="table-of-content {{$class}}" open>
+{{ $class := .Get "class" }}
+<details class="table-of-content {{$class}} test" open>
   <summary>
     {{ with i18n "toc" }}
       {{ . }}
@@ -13,15 +7,6 @@
       Spis treści
     {{ end }}
   </summary>
-  {{ if .Page.TableOfContents }}
-  <ul>
-    {{ range .Page.TableOfContents }}
-      <li>
-        <a href="#{{ .ID }}">{{ .Text }}</a>
-      </li>
-    {{ end }}
-  </ul>
-{{ else }}
-  <p>Brak spisu treści do wyświetlenia.</p>
-{{ end }}
+ {{ $toc := .Page.TableOfContents }}
+    {{ $toc | safeHTML }}
 </details>
