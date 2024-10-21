@@ -9,8 +9,8 @@
   </summary>
 
 
-  {{ $toc := .Page.TableOfContents | replaceRE "<ul>\\s*<li>\\s*<ul>.*?</ul>\\s*</li>\\s*</ul>" "" | replaceRE "<ul>\\s*<li>" "<ul>" | replaceRE "</li>\\s*</ul>" "</ul>" | replaceRE "<ul>" "" | replaceRE "</ul>" "" | safeHTML }}
-{{ $toc | safeHTML }}
+  {{ $toc := .Page.TableOfContents | replaceRE "<ul>\\s*<li>\\s*<ul>.*?</ul>\\s*</li>\\s*</ul>" "" | replaceRE "<ul>" "" | replaceRE "</ul>" "" | safeHTML }}
+  {{ $toc | safeHTML }}
 
 
 
