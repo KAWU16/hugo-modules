@@ -1,5 +1,5 @@
 {{ $class := .Get "class" }}
-<details class="table-of-content {{ $class }} test" open>
+<details class="table-of-content {{$class}} test" open>
   <summary>
     {{ with i18n "toc" }}
       {{ . }}
@@ -7,18 +7,6 @@
       Spis treści
     {{ end }}
   </summary>
-
-  {{ $toc := .Page.TableOfContents }}
-  <pre>{{ printf "%#v" $toc }}</pre>
-  {{ if $toc }}
-    <ul>
-      {{ range $toc }}
-        <li>
-          <a href="#{{ .ID }}">{{ .Text }}</a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ else }}
-    <p>Brak spisu treści do wyświetlenia.</p>
-  {{ end }}
+ {{ $toc := .Page.TableOfContents }}
+    {{ $toc | safeHTML }}
 </details>
