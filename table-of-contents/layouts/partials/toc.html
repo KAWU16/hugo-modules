@@ -1,4 +1,4 @@
-{{ $class:= .Class }}
+{{ $class := .Class }}
 {{ $scratch := newScratch }}
 {{ if not (.Collapsed | default true) }} 
   {{ $scratch.Set "openAttr" "open" }}
@@ -13,5 +13,11 @@
       Spis treści
     {{ end }}
   </summary>
-  {{ .TableOfContents }}
+  <ul>
+    {{ range .TableOfContents }}
+      <li>
+        <a href="{{ .URL }}">{{ .Text }}</a>
+      </li>
+    {{ end }}
+  </ul>
 </details>
