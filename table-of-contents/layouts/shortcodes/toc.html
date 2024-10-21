@@ -8,7 +8,10 @@
     {{ end }}
   </summary>
   <ul>
-    {{ $toc := .Page.TableOfContents | markdownify }}
-    {{ $toc | safeHTML }}
+    {{ range .TableOfContents }}
+      <li>
+        <a href="{{ .URL }}">{{ .Text }}</a>
+      </li>
+    {{ end }}
   </ul>
 </details>
