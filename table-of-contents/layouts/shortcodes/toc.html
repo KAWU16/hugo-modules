@@ -8,5 +8,6 @@
     {{ end }}
   </summary>
  {{ $toc := .Page.TableOfContents }}
+  <pre>{{ printf "%#v" $toc }}</pre>
     {{ $toc | safeHTML }}
 </details>
