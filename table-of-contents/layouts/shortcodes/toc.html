@@ -8,8 +8,18 @@
     {{ end }}
   </summary>
 
- {{ $toc := .Page.TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" | safeHTML }}
-    {{ $toc | safeHTML }}
+  {{ $toc := .Page.TableOfContents }}
+  {{ if $toc }}
+    <ul>
+      {{ range $toc }}
+        <li>
+          <a href="#{{ .ID }}">{{ .Text }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>Brak spisu treści do wyświetlenia.</p>
+  {{ end }}
 
 
 
