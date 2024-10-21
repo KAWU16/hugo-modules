@@ -12,14 +12,16 @@
     {{ $toc | safeHTML }}
 
     {{ $toc := .Page.TableOfContents }}
-{{ $fragments := $toc | .Fragments }}
-
-<ul class="table-of-contents">
-  {{ range $fragments }}
-    <li>
-      <a href="{{ .URL }}">{{ .Text }}</a>
-    </li>
-  {{ end }}
-</ul>
+{{ if $toc }}
+  <ul>
+    {{ range $toc }}
+      <li>
+        <a href="#{{ .ID }}">{{ .Text }}</a>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  <p>Brak spisu treści do wyświetlenia.</p>
+{{ end }}
 
 </details>
