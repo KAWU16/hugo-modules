@@ -8,7 +8,7 @@
     {{ end }}
   </summary>
   <ul>
-    {{ range .TableOfContents }}
+    {{ range .Page.TableOfContents }}
       <li>
         <a href="{{ .URL }}">{{ .Text }}</a>
       </li>
