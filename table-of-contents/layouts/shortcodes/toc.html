@@ -7,6 +7,5 @@
       Spis treści
     {{ end }}
   </summary>
- {{ $toc := .Page.TableOfContents }}
-    {{ $toc | safeHTML }}
+ {{ partial "toc.html" . }}
 </details>
