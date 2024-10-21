@@ -13,11 +13,15 @@
       Spis treści
     {{ end }}
   </summary>
+  {{ if .Page.TableOfContents }}
   <ul>
-    {{ range .TableOfContents }}
+    {{ range .Page.TableOfContents }}
       <li>
-        <a href="{{ .URL }}">{{ .Text }}</a>
+        <a href="#{{ .ID }}">{{ .Text }}</a>
       </li>
     {{ end }}
   </ul>
+{{ else }}
+  <p>Brak spisu treści do wyświetlenia.</p>
+{{ end }}
 </details>
