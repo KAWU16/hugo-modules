@@ -9,4 +9,16 @@
   </summary>
  {{ $toc := .Page.TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" | safeHTML }}
     {{ $toc | safeHTML }}
+
+{{ $toc := .TableOfContents }}
+{{ $fragments := $toc | .Fragments }}
+
+<ul class="table-of-contents">
+  {{ range $fragments }}
+    <li>
+      <a href="{{ .URL }}">{{ .Text }}</a>
+    </li>
+  {{ end }}
+</ul>
+
 </details>
