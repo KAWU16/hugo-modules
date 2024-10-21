@@ -9,6 +9,7 @@
   </summary>
 
   {{ $toc := .Page.TableOfContents }}
+  <pre>{{ printf "%#v" $toc }}</pre>
   {{ if $toc }}
     <ul>
       {{ range $toc }}
