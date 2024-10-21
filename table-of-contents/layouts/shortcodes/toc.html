@@ -7,15 +7,6 @@
       Spis treści
     {{ end }}
   </summary>
-  {{ if .Page.TableOfContents }}
-  <ul>
-    {{ range .Page.TableOfContents }}
-      <li>
-        <a href="#{{ .ID }}">{{ .Text }}</a>
-      </li>
-    {{ end }}
-  </ul>
-{{ else }}
-  <p>Brak spisu treści do wyświetlenia.</p>
-{{ end }}
+ {{ $toc := .Page.TableOfContents }}
+    {{ $toc | safeHTML }}
 </details>
