@@ -1,4 +1,4 @@
-{{ $class:= .Get "class" }}
+{{ $class := .Get "class" }}
 <details class="table-of-content {{$class}}">
   <summary>
     {{ with i18n "toc" }}
@@ -7,5 +7,11 @@
       Spis treści
     {{ end }}
   </summary>
-  {{ .Page.TableOfContents }}
+  <ul>
+    {{ range .Page.TableOfContents }}
+      <li>
+        <a href="{{ .URL }}">{{ .Text }}</a>
+      </li>
+    {{ end }}
+  </ul>
 </details>
