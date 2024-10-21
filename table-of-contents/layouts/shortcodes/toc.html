@@ -7,8 +7,6 @@
       Spis treści
     {{ end }}
   </summary>
- {{ $toc := .Page.TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" | safeHTML }}
-    {{ $toc | safeHTML }}
 
 {{ $toc := .TableOfContents }}
 {{ $fragments := $toc | .Fragments }}
